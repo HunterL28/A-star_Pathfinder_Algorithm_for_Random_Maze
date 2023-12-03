@@ -163,8 +163,9 @@ def main():
                                      facecolor='green')
             ax.add_patch(rect)
 
-        plt.xlim(0, len(maze[0]))
-        plt.ylim(0, len(maze))
+        plt.xlim(0, len(maze[0])-1)
+        plt.xticks(range(len(maze[0])))
+        plt.ylim(len(maze)-1, 0)
         plt.show()
 
     # Example maze and path
@@ -178,6 +179,10 @@ def main():
 
     # Plotting the maze with path
     plot_maze_with_path(maze_example, path_example, open_path, closed_path)
+
+    print('Closed List:', closed_position_list)
+    print ('Open List:', open_position_list)
+    print('Path', path)
 
 
 if __name__ == '__main__':
