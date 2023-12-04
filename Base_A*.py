@@ -144,22 +144,22 @@ def main():
 
         # Plotting path
         for position in path:
-            rect = patches.Rectangle((position[1], len(maze) - position[0] - 1), .4, .4, linewidth=.4, edgecolor='red',
+            rect = patches.Rectangle((position[1]+.3, len(maze) - position[0]-.7), .4, .4, linewidth=.4, edgecolor='red',
                                      facecolor='red')
             ax.add_patch(rect)
 
         # Connecting red dots with a line
         if len(path) > 1:
-            path_x, path_y = zip(*[(pos[1] + 0.2, len(maze) - pos[0] - 0.8) for pos in path])
+            path_x, path_y = zip(*[(pos[1] + 0.5, len(maze) - pos[0]-.5) for pos in path])
             ax.plot(path_x, path_y, color='red', linestyle='-', linewidth=4)
 
         for position in open_path:
-            rect = patches.Rectangle((position[1], len(maze) - position[0] - 1), .4, .4, linewidth=.4, edgecolor='blue',
+            rect = patches.Rectangle((position[1]+.3, len(maze) - position[0]-.7), .4, .4, linewidth=.4, edgecolor='blue',
                                      facecolor='blue')
             ax.add_patch(rect)
 
         for position in closed_path:
-            rect = patches.Rectangle((position[1], len(maze) - position[0] - 1), .2, .2, linewidth=.2, edgecolor='blue',
+            rect = patches.Rectangle((position[1]+.43, len(maze) - position[0]-.575), .2, .2, linewidth=.2, edgecolor='blue',
                                      facecolor='green')
             ax.add_patch(rect)
 
