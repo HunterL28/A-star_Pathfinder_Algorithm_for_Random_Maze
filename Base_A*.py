@@ -102,23 +102,21 @@ def astar(maze, start, end, open_position_list, closed_position_list):
     return[]
 
 def main():
-    list_values = [1, 2, 3, 4, 5, 6, 7, 8]
+    list_values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
     values = [0, 1]
-    maze_size = 10
+    maze_size = 20
 
     maze = [[0 for _ in range(maze_size)] for _ in range(maze_size)]
 
     for i in range(maze_size):
         for j in range(maze_size):
-            maze[i][j] = random.choices(values, weights = [3, 2], k = 1)[0]
-
+            maze[i][j] = random.choices(values, weights=[3, 3], k=1)[0]
 
     start = (random.choice(list_values), random.choice(list_values))
     end = (random.choice(list_values), random.choice(list_values))
     while maze[start[0]][start[1]] == 1 or maze[end[0]][end[1]] == 1:
         start = (random.choice(list_values), random.choice(list_values))
         end = (random.choice(list_values), random.choice(list_values))
-
 
     open_position_list = []
     closed_position_list = []
@@ -159,14 +157,14 @@ def main():
             ax.add_patch(rect)
 
         for position in closed_path:
-            rect = patches.Rectangle((position[1]+.43, len(maze) - position[0]-.575), .2, .2, linewidth=.2, edgecolor='blue',
+            rect = patches.Rectangle((position[1]+.43, len(maze) - position[0]-.575), .2, .2, linewidth=.2, edgecolor='green',
                                      facecolor='green')
             ax.add_patch(rect)
 
-        plt.xlim(0, len(maze[0]))
-        plt.xticks(range(len(maze[0])))
-        plt.ylim(len(maze), 0)
-        plt.yticks(range(len(maze)))
+        plt.xlim(0, len(maze))
+        plt.xticks(range(len(maze)))
+        plt.ylim(len(maze[0]), 0)
+        plt.yticks(range(len(maze[0])))
         plt.show()
 
     # Example maze and path
