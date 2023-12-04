@@ -102,7 +102,7 @@ def astar(maze, start, end, open_position_list, closed_position_list):
     return[]
 
 def main():
-    list_values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    list_values = [1, 2, 3, 4, 5, 6, 7, 8]
     values = [0, 1]
     maze_size = 10
 
@@ -163,9 +163,10 @@ def main():
                                      facecolor='green')
             ax.add_patch(rect)
 
-        plt.xlim(0, len(maze[0])-1)
+        plt.xlim(0, len(maze[0]))
         plt.xticks(range(len(maze[0])))
-        plt.ylim(len(maze)-1, 0)
+        plt.ylim(len(maze), 0)
+        plt.yticks(range(len(maze)))
         plt.show()
 
     # Example maze and path
